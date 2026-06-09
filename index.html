@@ -135,7 +135,7 @@
             <div class="bg-hostel-card border border-hostel-border rounded-xl p-5 space-y-3">
                 <div class="flex items-center gap-2 text-sky-400 font-bold text-xs uppercase tracking-wider">
                     <i class="fa-solid fa-id-card"></i>
-                    <span>পাসপোর্ট সাইজ ছবি রেট (Matte/Glossy)</span>
+                    <span>পাসপোর্ট সাইজ ছবি রেট</span>
                 </div>
                 <div class="grid grid-cols-2 gap-2 text-xs">
                     <div class="p-2.5 rounded-lg bg-hostel-dark border border-hostel-border/50 flex flex-col justify-center">
@@ -312,12 +312,12 @@
         </div>
     </div>
 
-    <script>
-        // State management
+     <script>
+        // State management variables
         let calcMode = 'doc'; // 'doc' or 'photo'
         let docStyle = 'bw-single'; // 'bw-single', 'bw-double', 'color'
 
-        // DOM elements cache
+        // DOM elements cache references
         const tabDoc = document.getElementById('tab-doc');
         const tabPhoto = document.getElementById('tab-photo');
         const sectionDocInputs = document.getElementById('section-doc-inputs');
@@ -337,7 +337,7 @@
         const billDescSpecs = document.getElementById('bill-desc-specs');
         const billDescCopies = document.getElementById('bill-desc-copies');
 
-        // Toggle Main mode tabs
+        // Toggle main print type tabs
         function setCalculatorMode(mode) {
             calcMode = mode;
             if (mode === 'doc') {
@@ -356,7 +356,7 @@
             runCalculation();
         }
 
-        // Toggle Document sub styles
+        // Toggle Document styles (Single, Double, Color)
         function setDocStyle(style) {
             docStyle = style;
             const activeClass = 'py-2 px-1.5 rounded-lg border-2 border-emerald-500 bg-emerald-950/20 text-white font-semibold text-[11px] transition-all text-center';
@@ -369,7 +369,7 @@
             runCalculation();
         }
 
-        // Calculate dynamic bill based on exact pricing rules
+        // Calculate billing rates instantly
         function runCalculation() {
             let totalCost = 0;
 
@@ -377,20 +377,14 @@
                 const pages = parseInt(inputDocPages.value) || 0;
                 const copies = parseInt(inputDocCopies.value) || 0;
                 
-                let ratePerUnit = 0;
-                
                 if (docStyle === 'bw-single') {
-                    // "সাদা কালো একপাশ = ২ টাকা"
                     totalCost = pages * 2 * copies;
                     billDescSpecs.innerText = `${pages} Pgs (B&W Single)`;
                 } else if (docStyle === 'bw-double') {
-                    // "সাদা কালো দুইপাশ = ৩ টাকা" 
-                    // Calculation works by dividing actual sheet pages by 2 to get number of physical sheets
                     const sheets = Math.ceil(pages / 2);
                     totalCost = sheets * 3 * copies;
                     billDescSpecs.innerText = `${pages} Pgs [${sheets} Sheet] (B&W Double)`;
                 } else if (docStyle === 'color') {
-                    // "রঙিন প্রিন্ট = ৫ টাকা"
                     totalCost = pages * 5 * copies;
                     billDescSpecs.innerText = `${pages} Pgs (Color Print)`;
                 }
@@ -401,12 +395,7 @@
             } else if (calcMode === 'photo') {
                 const photoCopies = parseInt(inputPhotoCopies.value) || 0;
                 
-                // Tier pricing check:
-                // ১ কপি = ৮ টাকা
-                // ২ কপি = ১৫ টাকা
-                // ৩ কপি = ২৫ টাকা
-                // ৪ কপি = ৩০ টাকা
-                // More than 4 are combined into bundles of 4 (৳30) + remainder rates.
+                // Tier pricing lookup structure:
                 const bundleOf4 = Math.floor(photoCopies / 4);
                 const remainder = photoCopies % 4;
                 let remainderCost = 0;
@@ -424,7 +413,7 @@
             billTotal.innerText = totalCost;
         }
 
-        // Order trigger to external chats (Clipboard copy fallback + message payload)
+        // Prepare structured text message body for easy ordering
         function getMessageText() {
             const total = billTotal.innerText;
             if (calcMode === 'doc') {
@@ -459,12 +448,50 @@
             }
         }
 
+        // Show a visual toast notification to explain clipboard copying action
+        function showToast(message, duration = 3000) {
+            // Remove existing toast if visible
+            const existingToast = document.getElementById('medprint-toast');
+            if (existingToast) existingToast.remove();
+
+            const toast = document.createElement('div');
+            toast.id = 'medprint-toast';
+            
+            // Designed to float cleanly above content, offset on mobile so bottom bar doesn't cover it
+            toast.className = 'fixed bottom-24 md:bottom-10 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-slate-900 border border-emerald-500/40 text-white px-5 py-4 rounded-xl shadow-2xl max-w-[90%] w-96 text-xs md:text-sm glow-green transition-all duration-300 transform translate-y-2 opacity-0';
+            
+            toast.innerHTML = `
+                <div class="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-copy text-lg animate-pulse"></i>
+                </div>
+                <div>
+                    <p class="font-bold text-white">Order Details Copied!</p>
+                    <p class="text-slate-400 text-[11px] md:text-xs mt-0.5">${message}</p>
+                </div>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            // Trigger beautiful CSS pop-in animation
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+            }, 10);
+
+            // Trigger fade-out and destruction
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, duration);
+        }
+
+        // Clipboard copy mechanism combined with instant external redirection
         function sendOrder(channel) {
             const msg = getMessageText();
             if (channel === 'whatsapp') {
                 window.open(`https://wa.me/8801729811195?text=${msg}`, '_blank');
             } else if (channel === 'telegram') {
-                // Copy plain text formatted for Telegram
                 const decodedMsg = decodeURIComponent(msg);
                 const tempTextarea = document.createElement("textarea");
                 tempTextarea.value = decodedMsg;
@@ -473,12 +500,17 @@
                 document.execCommand("copy");
                 document.body.removeChild(tempTextarea);
 
-                // Open telegram channel
-                window.open('https://t.me/ss7FD', '_blank');
+                // Show dynamic clipboard copy feedback
+                showToast("Just paste (Ctrl+V or Long Press) when Telegram chat opens.", 4000);
+
+                // Open Telegram chat with a slight delay so the user understands the visual prompt
+                setTimeout(() => {
+                    window.open('https://t.me/ss7FD', '_blank');
+                }, 1200);
             }
         }
 
-        // Initial launch
+        // Setup immediate initial calculate values on boot
         window.onload = function() {
             runCalculation();
         }
