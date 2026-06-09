@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedPrint | No BS Print Service for Med Students</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clinical: {
+                            50: '#eef2ff',
+                            400: '#10b981', /* Emerald */
+                            500: '#059669',
+                            600: '#027650',
+                            900: '#064e3b',
+                        },
+                        hostel: {
+                            dark: '#0a0f1d',
+                            card: '#131b2e',
+                            border: '#1e293b',
+                            accent: '#38bdf8' /* Cyan */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans Bengali', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Sans+Bengali:wght@400;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+        }
+        .glow-green {
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-hostel-dark text-slate-100 min-h-screen flex flex-col antialiased selection:bg-clinical-400 selection:text-white pb-20 md:pb-0">
+
+    <header class="sticky top-0 z-50 bg-hostel-dark/90 backdrop-blur-md border-b border-hostel-border px-4 py-3">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-prescription text-white text-base"></i>
+                </div>
+                <div>
+                    <span class="text-sm font-black tracking-tight block">MEDPRINT</span>
+                    <span class="text-[9px] text-slate-400 font-mono tracking-widest block uppercase">Dorm HQ • Room 312</span>
+                </div>
+            </a>
+            
+            <div class="flex items-center space-x-3">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>ACTIVE NOW
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-4xl mx-auto w-full px-4 py-6 space-y-6">
+        
+        <section class="relative bg-gradient-to-br from-hostel-card to-hostel-dark border border-hostel-border rounded-2xl p-6 overflow-hidden">
+            <div class="absolute -right-16 -top-16 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute -left-16 -bottom-16 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl"></div>
+
+            <div class="relative z-10 space-y-4">
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-rose-500/10 text-rose-400 border border-rose-500/20 text-xs font-semibold">
+                    <i class="fa-solid fa-triangle-exclamation animate-bounce"></i> Item, Card, or Prof Exam soon?
+                </div>
+
+                <h1 class="text-2xl md:text-3xl font-black tracking-tight text-white leading-tight">
+                    Soft copy পড়তে পড়তে <span class="text-rose-400">চোখ শেষ</span>?<br>
+                    বাইরে যাওয়ার টাইম নাই? দামও বেশি?
+                </h1>
+
+                <p class="text-xs md:text-sm text-slate-300 max-w-xl leading-relaxed">
+                    Stop ruining your eyes on bright tablets at 2 AM. Get crisp physical study sheets printed directly inside the hostel. Drop your PDF online and collect from <span class="text-emerald-400 font-bold">Room 312</span>.
+                </p>
+
+                <!-- Micro-Action buttons -->
+                <div class="pt-2 flex flex-wrap gap-2.5">
+                    <a href="#estimator" class="px-4 py-2 bg-clinical-500 hover:bg-clinical-600 text-white text-xs font-bold rounded-lg transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-calculator"></i> Estimate Price
+                    </a>
+                    <a href="https://wa.me/8801729811195" target="_blank" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-hostel-border text-xs font-bold rounded-lg transition-all flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp Order
+                    </a>
+                    <a href="https://t.me/ss7FD" target="_blank" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-hostel-border text-xs font-bold rounded-lg transition-all flex items-center gap-2">
+                        <i class="fa-brands fa-telegram text-sky-400"></i> Telegram Order
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Doc Print Rates -->
+            <div class="bg-hostel-card border border-hostel-border rounded-xl p-5 space-y-3">
+                <div class="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-wider">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>ডকুমেন্ট প্রিন্ট রেট (A4)</span>
+                </div>
+                <div class="divide-y divide-hostel-border/60 text-sm">
+                    <div class="py-2.5 flex justify-between items-center">
+                        <span class="text-slate-300">সাদা কালো (একপাশ / Single-sided)</span>
+                        <span class="font-mono font-bold text-white">৳২ <span class="text-[10px] text-slate-400 font-normal">/ পেজ</span></span>
+                    </div>
+                    <div class="py-2.5 flex justify-between items-center">
+                        <span class="text-slate-300">সাদা কালো (দুইপাশ / Double-sided)</span>
+                        <span class="font-mono font-bold text-white">৳৩ <span class="text-[10px] text-slate-400 font-normal">/ পাতা</span></span>
+                    </div>
+                    <div class="py-2.5 flex justify-between items-center">
+                        <span class="text-slate-300">রঙিন প্রিন্ট (Color Page)</span>
+                        <span class="font-mono font-bold text-emerald-400">৳৫ <span class="text-[10px] text-slate-400 font-normal">/ পেজ</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Passport Photo Rates -->
+            <div class="bg-hostel-card border border-hostel-border rounded-xl p-5 space-y-3">
+                <div class="flex items-center gap-2 text-sky-400 font-bold text-xs uppercase tracking-wider">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>পাসপোর্ট সাইজ ছবি রেট (Matte/Glossy)</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <div class="p-2.5 rounded-lg bg-hostel-dark border border-hostel-border/50 flex flex-col justify-center">
+                        <span class="text-slate-400">১ কপি</span>
+                        <span class="font-mono text-base font-bold text-white mt-1">৳৮</span>
+                    </div>
+                    <div class="p-2.5 rounded-lg bg-hostel-dark border border-hostel-border/50 flex flex-col justify-center">
+                        <span class="text-slate-400">২ কপি</span>
+                        <span class="font-mono text-base font-bold text-white mt-1">৳১৫</span>
+                    </div>
+                    <div class="p-2.5 rounded-lg bg-hostel-dark border border-hostel-border/50 flex flex-col justify-center">
+                        <span class="text-slate-400">৩ কপি</span>
+                        <span class="font-mono text-base font-bold text-white mt-1">৳২৫</span>
+                    </div>
+                    <div class="p-2.5 rounded-lg bg-hostel-dark border border-hostel-border/50 flex flex-col justify-center">
+                        <span class="text-slate-400">৪ কপি (পূর্ণ সেট)</span>
+                        <span class="font-mono text-base font-bold text-emerald-400 mt-1">৳৩০</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="estimator" class="bg-hostel-card border-2 border-slate-800/80 rounded-2xl p-5 md:p-6 shadow-2xl relative">
+            <div class="absolute -top-3 left-4 px-3 py-0.5 bg-clinical-500 rounded-full text-[10px] font-mono text-white font-semibold">
+                MEDPRINT ACTIVE ESTIMATOR
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-6 mt-2">
+                <!-- Calculator inputs -->
+                <div class="flex-grow space-y-4">
+                    
+                    <!-- Mode toggles -->
+                    <div>
+                        <span class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-2">Print Job Type</span>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="setCalculatorMode('doc')" id="tab-doc" class="py-2 px-3 rounded-lg border-2 border-emerald-500 bg-emerald-950/20 text-white font-bold text-xs transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-file-pdf"></i> Document Print
+                            </button>
+                            <button onclick="setCalculatorMode('photo')" id="tab-photo" class="py-2 px-3 rounded-lg border border-hostel-border bg-hostel-dark text-slate-400 hover:text-white font-bold text-xs transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-camera"></i> Passport Photo
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- DOCUMENT CALCULATOR INPUTS -->
+                    <div id="section-doc-inputs" class="space-y-4">
+                        <div>
+                            <span class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-2">Color & Sided setup</span>
+                            <div class="grid grid-cols-3 gap-1.5">
+                                <button onclick="setDocStyle('bw-single')" id="opt-bw-single" class="py-2 px-1.5 rounded-lg border-2 border-emerald-500 bg-emerald-950/20 text-white font-semibold text-[11px] transition-all text-center">
+                                    B&W Single (৳২)
+                                </button>
+                                <button onclick="setDocStyle('bw-double')" id="opt-bw-double" class="py-2 px-1.5 rounded-lg border border-hostel-border bg-hostel-dark text-slate-400 hover:text-white font-semibold text-[11px] transition-all text-center">
+                                    B&W Double (৳৩)
+                                </button>
+                                <button onclick="setDocStyle('color')" id="opt-color" class="py-2 px-1.5 rounded-lg border border-hostel-border bg-hostel-dark text-slate-400 hover:text-white font-semibold text-[11px] transition-all text-center">
+                                    Color (৳৫)
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Total Pages in PDF</label>
+                                <input type="number" id="doc-pages" value="10" min="1" oninput="runCalculation()" class="w-full bg-hostel-dark border border-hostel-border focus:border-clinical-500 rounded-lg px-3 py-2 text-sm text-white font-bold outline-none transition-all" />
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Print Copies</label>
+                                <input type="number" id="doc-copies" value="1" min="1" oninput="runCalculation()" class="w-full bg-hostel-dark border border-hostel-border focus:border-clinical-500 rounded-lg px-3 py-2 text-sm text-white font-bold outline-none transition-all" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PASSPORT PHOTO INPUTS -->
+                    <div id="section-photo-inputs" class="space-y-4 hidden">
+                        <div>
+                            <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">How many photo copies?</label>
+                            <div class="relative">
+                                <input type="number" id="photo-copies" value="4" min="1" oninput="runCalculation()" class="w-full bg-hostel-dark border border-hostel-border focus:border-clinical-500 rounded-lg px-3 py-2 text-sm text-white font-bold outline-none transition-all" />
+                                <span class="absolute right-3 top-2.5 text-[10px] text-slate-400 font-mono">Passport Size</span>
+                            </div>
+                            <p class="text-[10px] text-slate-400 mt-1.5">
+                                Optimized with cost tier: 1=৳8, 2=৳15, 3=৳25, 4=৳30 bundle rates.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Dynamic Invoice View -->
+                <div class="w-full md:w-80 bg-hostel-dark/60 border border-hostel-border/80 p-4 rounded-xl flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400">DYNAMIC BILL</span>
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        </div>
+                        <div class="text-4xl font-black text-white mt-1.5">৳<span id="bill-total">20</span></div>
+                        
+                        <hr class="border-hostel-border my-3" />
+                        
+                        <!-- Order specs -->
+                        <div class="space-y-1.5 text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Order Category:</span>
+                                <span id="bill-desc-category" class="text-slate-200 font-bold">Document Print</span>
+                            </div>
+                            <div id="bill-line-spec" class="flex justify-between">
+                                <span class="text-slate-400">Specifications:</span>
+                                <span id="bill-desc-specs" class="text-slate-200">10 Pgs (B&W Single)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Total Print Items:</span>
+                                <span id="bill-desc-copies" class="text-slate-200 font-mono">1 Copy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 pt-2">
+                        <button onclick="sendOrder('whatsapp')" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg transition-all flex items-center justify-center gap-2 text-xs">
+                            <i class="fa-brands fa-whatsapp text-sm"></i> Order on WhatsApp
+                        </button>
+                        <button onclick="sendOrder('telegram')" class="w-full py-2.5 bg-sky-600 hover:bg-sky-500 text-white font-bold rounded-lg transition-all flex items-center justify-center gap-2 text-xs">
+                            <i class="fa-brands fa-telegram text-sm"></i> Order on Telegram
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-hostel-card border border-hostel-border rounded-xl p-5">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="space-y-1.5">
+                    <span class="text-[9px] font-mono uppercase tracking-wider text-sky-400">Physical Pickup Location</span>
+                    <h3 class="text-md font-bold text-slate-100 flex items-center gap-1.5">
+                        <i class="fa-solid fa-map-location-dot text-emerald-400"></i> Hostel Room 312
+                    </h3>
+                    <p class="text-xs text-slate-400">
+                        Just walk up to Room 312 for instant hands-on delivery. No delivery charge. Cash or bKash active.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col gap-1 text-xs text-slate-300 font-mono border-t md:border-t-0 md:border-l border-hostel-border pt-3 md:pt-0 md:pl-5 w-full md:w-auto">
+                    <a href="tel:+8801729811195" class="flex items-center gap-2 hover:text-white transition-colors">
+                        <i class="fa-solid fa-phone text-emerald-400"></i> +8801729811195
+                    </a>
+                    <a href="https://t.me/ss7FD" target="_blank" class="flex items-center gap-2 hover:text-white transition-colors">
+                        <i class="fa-brands fa-telegram text-sky-400"></i> t.me/ss7FD
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-hostel-dark/90 border-t border-hostel-border/60 py-6 text-center text-slate-400 text-xs md:text-sm">
+        <div class="max-w-4xl mx-auto px-4 space-y-1.5">
+            <p>Made for all the hostel boys saving money and eyesight. Minimal sleep, maximal prints. 🩺</p>
+            <p>© 2026 MedPrint.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Quick-Order Sticky Bar -->
+    <div class="fixed bottom-0 inset-x-0 z-40 bg-hostel-dark/95 backdrop-blur-md border-t border-hostel-border p-3 flex sm:hidden justify-between items-center shadow-2xl">
+        <div class="flex flex-col pl-2">
+            <span class="text-[9px] text-slate-400 font-mono tracking-wider">Pickup Point</span>
+            <span class="text-xs font-bold text-white"><i class="fa-solid fa-hotel text-emerald-400 mr-1"></i> Room 312</span>
+        </div>
+        <div class="flex gap-2">
+            <a href="https://wa.me/8801729811195" class="bg-emerald-600 active:bg-emerald-700 text-white px-3.5 py-1.5 rounded-lg font-bold text-xs flex items-center gap-1.5">
+                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+            </a>
+            <a href="https://t.me/ss7FD" class="bg-sky-600 active:bg-sky-700 text-white px-3.5 py-1.5 rounded-lg font-bold text-xs flex items-center gap-1.5">
+                <i class="fa-brands fa-telegram text-sm"></i> Telegram
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // State management
+        let calcMode = 'doc'; // 'doc' or 'photo'
+        let docStyle = 'bw-single'; // 'bw-single', 'bw-double', 'color'
+
+        // DOM elements cache
+        const tabDoc = document.getElementById('tab-doc');
+        const tabPhoto = document.getElementById('tab-photo');
+        const sectionDocInputs = document.getElementById('section-doc-inputs');
+        const sectionPhotoInputs = document.getElementById('section-photo-inputs');
+
+        const optBwSingle = document.getElementById('opt-bw-single');
+        const optBwDouble = document.getElementById('opt-bw-double');
+        const optColor = document.getElementById('opt-color');
+
+        const inputDocPages = document.getElementById('doc-pages');
+        const inputDocCopies = document.getElementById('doc-copies');
+        const inputPhotoCopies = document.getElementById('photo-copies');
+
+        const billTotal = document.getElementById('bill-total');
+        const billDescCategory = document.getElementById('bill-desc-category');
+        const billLineSpec = document.getElementById('bill-line-spec');
+        const billDescSpecs = document.getElementById('bill-desc-specs');
+        const billDescCopies = document.getElementById('bill-desc-copies');
+
+        // Toggle Main mode tabs
+        function setCalculatorMode(mode) {
+            calcMode = mode;
+            if (mode === 'doc') {
+                tabDoc.className = 'py-2 px-3 rounded-lg border-2 border-emerald-500 bg-emerald-950/20 text-white font-bold text-xs transition-all flex items-center justify-center gap-2';
+                tabPhoto.className = 'py-2 px-3 rounded-lg border border-hostel-border bg-hostel-dark text-slate-400 hover:text-white font-bold text-xs transition-all flex items-center justify-center gap-2';
+                sectionDocInputs.classList.remove('hidden');
+                sectionPhotoInputs.classList.add('hidden');
+                billLineSpec.classList.remove('hidden');
+            } else {
+                tabPhoto.className = 'py-2 px-3 rounded-lg border-2 border-emerald-500 bg-emerald-950/20 text-white font-bold text-xs transition-all flex items-center justify-center gap-2';
+                tabDoc.className = 'py-2 px-3 rounded-lg border border-hostel-border bg-hostel-dark text-slate-400 hover:text-white font-bold text-xs transition-all flex items-center justify-center gap-2';
+                sectionDocInputs.classList.add('hidden');
+                sectionPhotoInputs.classList.remove('hidden');
+                billLineSpec.classList.add('hidden');
+            }
+            runCalculation();
+        }
+
+        // Toggle Document sub styles
+        function setDocStyle(style) {
+            docStyle = style;
+            const activeClass = 'py-2 px-1.5 rounded-lg border-2 border-emerald-500 bg-emerald-950/20 text-white font-semibold text-[11px] transition-all text-center';
+            const inactiveClass = 'py-2 px-1.5 rounded-lg border border-hostel-border bg-hostel-dark text-slate-400 hover:text-white font-semibold text-[11px] transition-all text-center';
+            
+            optBwSingle.className = (style === 'bw-single') ? activeClass : inactiveClass;
+            optBwDouble.className = (style === 'bw-double') ? activeClass : inactiveClass;
+            optColor.className = (style === 'color') ? activeClass : inactiveClass;
+            
+            runCalculation();
+        }
+
+        // Calculate dynamic bill based on exact pricing rules
+        function runCalculation() {
+            let totalCost = 0;
+
+            if (calcMode === 'doc') {
+                const pages = parseInt(inputDocPages.value) || 0;
+                const copies = parseInt(inputDocCopies.value) || 0;
+                
+                let ratePerUnit = 0;
+                
+                if (docStyle === 'bw-single') {
+                    // "সাদা কালো একপাশ = ২ টাকা"
+                    totalCost = pages * 2 * copies;
+                    billDescSpecs.innerText = `${pages} Pgs (B&W Single)`;
+                } else if (docStyle === 'bw-double') {
+                    // "সাদা কালো দুইপাশ = ৩ টাকা" 
+                    // Calculation works by dividing actual sheet pages by 2 to get number of physical sheets
+                    const sheets = Math.ceil(pages / 2);
+                    totalCost = sheets * 3 * copies;
+                    billDescSpecs.innerText = `${pages} Pgs [${sheets} Sheet] (B&W Double)`;
+                } else if (docStyle === 'color') {
+                    // "রঙিন প্রিন্ট = ৫ টাকা"
+                    totalCost = pages * 5 * copies;
+                    billDescSpecs.innerText = `${pages} Pgs (Color Print)`;
+                }
+
+                billDescCategory.innerText = 'Document Print';
+                billDescCopies.innerText = `${copies} Set${copies > 1 ? 's' : ''}`;
+
+            } else if (calcMode === 'photo') {
+                const photoCopies = parseInt(inputPhotoCopies.value) || 0;
+                
+                // Tier pricing check:
+                // ১ কপি = ৮ টাকা
+                // ২ কপি = ১৫ টাকা
+                // ৩ কপি = ২৫ টাকা
+                // ৪ কপি = ৩০ টাকা
+                // More than 4 are combined into bundles of 4 (৳30) + remainder rates.
+                const bundleOf4 = Math.floor(photoCopies / 4);
+                const remainder = photoCopies % 4;
+                let remainderCost = 0;
+
+                if (remainder === 1) remainderCost = 8;
+                else if (remainder === 2) remainderCost = 15;
+                else if (remainder === 3) remainderCost = 25;
+
+                totalCost = (bundleOf4 * 30) + remainderCost;
+
+                billDescCategory.innerText = 'Passport Photo';
+                billDescCopies.innerText = `${photoCopies} Copy / Copies`;
+            }
+
+            billTotal.innerText = totalCost;
+        }
+
+        // Order trigger to external chats (Clipboard copy fallback + message payload)
+        function getMessageText() {
+            const total = billTotal.innerText;
+            if (calcMode === 'doc') {
+                const pages = inputDocPages.value;
+                const copies = inputDocCopies.value;
+                let styleLabel = '';
+                if (docStyle === 'bw-single') styleLabel = 'Black & White Single-sided (সাদা কালো একপাশ)';
+                if (docStyle === 'bw-double') styleLabel = 'Black & White Double-sided (সাদা কালো দুইপাশ)';
+                if (docStyle === 'color') styleLabel = 'Vibrant Color (রঙিন প্রিন্ট)';
+
+                return encodeURIComponent(
+                    `Hello MedPrint!\n` +
+                    `I want to place a document print order.\n\n` +
+                    `Print Spec:\n` +
+                    `- Mode: ${styleLabel}\n` +
+                    `- Pages: ${pages} Pages\n` +
+                    `- Copies: ${copies} Set(s)\n` +
+                    `- Est. Price: ৳${total}\n\n` +
+                    `Attaching PDF file below. Let me know when to pick up!`
+                );
+            } else {
+                const copies = inputPhotoCopies.value;
+                return encodeURIComponent(
+                    `Hello MedPrint!\n` +
+                    `I want to place a Passport Photo order.\n\n` +
+                    `Photo Spec:\n` +
+                    `- Size: Passport Size\n` +
+                    `- Total Copies: ${copies}\n` +
+                    `- Est. Price: ৳${total}\n\n` +
+                    `Attaching image below. Let me know when it is ready!`
+                );
+            }
+        }
+
+        function sendOrder(channel) {
+            const msg = getMessageText();
+            if (channel === 'whatsapp') {
+                window.open(`https://wa.me/8801729811195?text=${msg}`, '_blank');
+            } else if (channel === 'telegram') {
+                // Copy plain text formatted for Telegram
+                const decodedMsg = decodeURIComponent(msg);
+                const tempTextarea = document.createElement("textarea");
+                tempTextarea.value = decodedMsg;
+                document.body.appendChild(tempTextarea);
+                tempTextarea.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempTextarea);
+
+                // Open telegram channel
+                window.open('https://t.me/ss7FD', '_blank');
+            }
+        }
+
+        // Initial launch
+        window.onload = function() {
+            runCalculation();
+        }
+    </script>
+</body>
+</html>
